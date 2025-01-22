@@ -87,7 +87,7 @@ resource "aws_security_group" "web_sg" {
 
 # Web server in public subnet
 resource "aws_instance" "web_server" {
-  ami                    = "ami-0c02fb55956c7d316" # Amazon Linux 2 in us-east-1
+  ami                    = "ami-0956b8dc6ddc445ec" # Amazon Linux 2023 AMI in ca-central-1
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.web_sg.id]
@@ -120,7 +120,7 @@ resource "aws_security_group" "db_sg" {
 
 # Database server in private subnet (no public IP)
 resource "aws_instance" "db_server" {
-  ami                    = "ami-0c02fb55956c7d316"
+  ami                    = "ami-0956b8dc6ddc445ec"
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.private_subnet.id
   vpc_security_group_ids = [aws_security_group.db_sg.id]
